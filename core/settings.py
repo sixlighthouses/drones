@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "unfold",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "corsheaders",
+    "ninja",
     "drones",
 ]
 
@@ -54,9 +56,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "core.urls"
 
+CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
 ]
+CSRF_TRUSTED_ORIGINS = ["http://localhost:5173"]
+
+AUTH_USER_MODEL = "drones.CustomUser"
 
 TEMPLATES = [
     {
